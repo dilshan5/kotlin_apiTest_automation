@@ -1,4 +1,4 @@
-package com.syscolabs.qa.util
+package org.example.util
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory

@@ -1,5 +1,6 @@
-host: sample
+host: jsonplaceholder.typicode.com
+environment: QA
+release: v1.0
 client:
-  id: du6iRgmvIWOw81aWGXpnsRCXmstrbfSV
-  secret: eInBpVCOmppnQSpQ
-
+  id: test
+  secret: test

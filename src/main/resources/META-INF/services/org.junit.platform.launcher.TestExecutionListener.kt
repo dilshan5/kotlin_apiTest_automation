@@ -1,2 +1,0 @@
-package `META-INF`.services
-
