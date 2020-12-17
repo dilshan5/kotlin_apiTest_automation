@@ -36,3 +36,9 @@ Current test tasks are as follows.
   
 - General Regression Test Task (excluding wip tests)  - regressionTest
 - Developer PipeLine Test Task (excluding wip tests)  - pipeLine1_Test
+
+# References for learn Kotlin
+
+* https://docs.gradle.org/current/dsl/org.gradle.api.Task.html
+* https://openclassrooms.com/en/courses/5774406-learn-kotlin/5931841-enhance-your-classes
+* https://kotlinlang.org/docs/reference/classes.html

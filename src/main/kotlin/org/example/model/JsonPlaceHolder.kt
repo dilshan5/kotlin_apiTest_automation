@@ -9,6 +9,7 @@ import org.hamcrest.CoreMatchers
 
 open class JsonPlaceHolder : TestBase() {
 
+    //can access properties or methods even without any object creation
     companion object {
 
         const val GET_POSTS_RESOURCE_PATH = "/posts/"

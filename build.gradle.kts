@@ -8,6 +8,7 @@ group = "org.example"
 version = "0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
+//https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html
 repositories {
     mavenLocal()
     mavenCentral()
@@ -32,6 +33,7 @@ tasks.withType<Test> {
     testLogging.showStandardStreams = true
 }
 
+//Defines and configure a new task
 tasks.register<Test>("regressionTest") {
     useJUnitPlatform() {
         includeTags("regression")
@@ -46,6 +48,7 @@ tasks.register<Test>("pipeLine1_Test") {
     }
 }
 
+//Compiles Kotlin source files.
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")

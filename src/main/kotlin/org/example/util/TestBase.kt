@@ -22,6 +22,8 @@ abstract class TestBase {
         @JvmStatic
         fun setup() {
             RestAssured.baseURI = "https://${ConfigurationSpecification.getHost()}"
+            //print the request specification details.
+            //print the response details if the response matches a given status code.
             RestAssured.filters(RequestLoggingFilter(), ResponseLoggingFilter())
         }
 
