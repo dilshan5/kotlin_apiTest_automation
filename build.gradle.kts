@@ -6,7 +6,6 @@ plugins {
 
 group = "org.example"
 version = "0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
 
 //https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html
 repositories {
