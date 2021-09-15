@@ -32,3 +32,4 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Changes are backward compatible
 - [ ] Dependent PRs are linked
 - [ ] I wrote documentation for all complex code areas
+- [ ] I updated the relevant Jira test cases
