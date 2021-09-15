@@ -1,6 +1,6 @@
 host: jsonplaceholder.typicode.com
 environment: QA
-release: v1.0
+release: v1.1
 client:
   id: test
   secret: test
