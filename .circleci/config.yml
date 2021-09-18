@@ -12,6 +12,7 @@ parameters:
 
 jobs: # a collection of steps
   setup:
+    executor: continuation/default
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx3g"
