@@ -11,7 +11,7 @@ parameters:
     default: "regressionTest"
 
 jobs: # a collection of steps
-  build:
+  setup:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx3g"
@@ -42,4 +42,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build
+      - setup
