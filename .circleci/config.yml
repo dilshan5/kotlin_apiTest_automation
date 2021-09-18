@@ -1,4 +1,6 @@
 version: 2.1 # use CircleCI 2.1
+# this allows you to use CircleCI's dynamic configuration feature
+setup: true
 parameters:
   test_suite:
     type: enum
