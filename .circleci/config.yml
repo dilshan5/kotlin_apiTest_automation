@@ -1,11 +1,10 @@
 version: 2.1 # use CircleCI 2.1
-executors:
-  xenial:
-    parameters:
-      test_suite:
-        type: enum
-        enum: [ "regressionTest", "pipeLine1_Test" ]
-        default: "regressionTest"
+parameters:
+  test_suite:
+    type: enum
+    enum: [ "regressionTest", "pipeLine1_Test" ]
+    default: "regressionTest"
+
 jobs: # a collection of steps
   build:
     environment:
@@ -23,19 +22,18 @@ jobs: # a collection of steps
       - run:
           name: Run tests
           command:
-            ./gradlew << parameters.test_suite >>
+            ./gradlew << pipeline.parameters.test_suite >>
       - save_cache:
           paths:
             - ~/.gradle/wrapper
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
       - store_test_results:
           # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: build/reports/tests/test/
+          path: build/reports/tests/
       - store_artifacts: # Upload test results for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: build/reports/tests/test/
+          path: build/reports/tests/
           when: always
 workflows:
-  version: 2
   workflow:
     jobs:
       - build
