@@ -1,12 +1,12 @@
 version: 2 # use CircleCI 2.0
+parameters:
+  test_suite:
+    description: Test suite
+    type: enum
+    enum: ["regressionTest", "pipeLine1_Test"]
+    default: "regressionTest"
 jobs: # a collection of steps
   build:
-    parameters:
-      test_suite:
-        description: Test suite
-        type: enum
-        enum: ["regressionTest", "pipeLine1_Test"]
-        default: "regressionTest"
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx3g"
@@ -22,7 +22,7 @@ jobs: # a collection of steps
       - run:
           name: Run tests
           command:
-            ./gradlew << parameters.test_suite >>
+            ./gradlew << pipeline.parameters.test_suite >>
       - save_cache:
           paths:
             - ~/.gradle/wrapper
