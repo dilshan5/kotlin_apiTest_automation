@@ -1,18 +1,13 @@
 version: 2.1 # use CircleCI 2.1
-# this allows you to use CircleCI's dynamic configuration feature
-setup: true
-# the continuation orb is required in order to use dynamic configuration
-orbs:
-  continuation: circleci/continuation@0.1.2
-parameters:
-  test_suite:
-    type: enum
-    enum: [ "regressionTest", "pipeLine1_Test" ]
-    default: "regressionTest"
-
+executors:
+  xenial:
+    parameters:
+      test_suite:
+        type: enum
+        enum: [ "regressionTest", "pipeLine1_Test" ]
+        default: "regressionTest"
 jobs: # a collection of steps
-  setup:
-    executor: continuation/default
+  build:
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx3g"
@@ -28,7 +23,7 @@ jobs: # a collection of steps
       - run:
           name: Run tests
           command:
-            ./gradlew << pipeline.parameters.test_suite >>
+            ./gradlew << parameters.test_suite >>
       - save_cache:
           paths:
             - ~/.gradle/wrapper
@@ -43,4 +38,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - setup
+      - build
