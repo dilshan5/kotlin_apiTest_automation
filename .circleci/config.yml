@@ -21,17 +21,11 @@ jobs: # a collection of steps
           paths:
             - ~/.gradle/wrapper
           key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/junit/
-            find . -type d -name ".*/build/reports/tests/test/" -exec cp {} ~/test-results/junit/ \;
-          when: always
       - store_test_results:
           # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: ~/test-results
+          path: build/reports/tests/test/
       - store_artifacts: # Upload test results for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: ~/test-results/junit
+          path: build/reports/tests/test/
           when: always
 workflows:
   version: 2
