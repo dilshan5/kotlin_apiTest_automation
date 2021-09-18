@@ -1,6 +1,12 @@
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build:
+    parameters:
+      test_suite:
+        description: Test suite
+        type: enum
+        enum: ["regressionTest", "pipeLine1_Test"]
+        default: "regressionTest"
     environment:
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx3g"
@@ -16,7 +22,7 @@ jobs: # a collection of steps
       - run:
           name: Run tests
           command:
-            ./gradlew test
+            ./gradlew << parameters.test_suite >>
       - save_cache:
           paths:
             - ~/.gradle/wrapper
@@ -25,7 +31,7 @@ jobs: # a collection of steps
           # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: build/reports/tests/test/
       - store_artifacts: # Upload test results for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: build/reports/tests/test/index.html
+          path: build/reports/tests/test/
           when: always
 workflows:
   version: 2
