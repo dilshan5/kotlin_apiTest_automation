@@ -1,6 +1,9 @@
 version: 2.1 # use CircleCI 2.1
 # this allows you to use CircleCI's dynamic configuration feature
 setup: true
+# the continuation orb is required in order to use dynamic configuration
+orbs:
+  continuation: circleci/continuation@0.1.2
 parameters:
   test_suite:
     type: enum
@@ -40,4 +43,3 @@ workflows:
   workflow:
     jobs:
       - build
-      - setup
