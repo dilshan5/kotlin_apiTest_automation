@@ -10,16 +10,20 @@ their build Pipeline(by adding a tag, eg: `pipeLine1`).
 
 You can open the project by any IDE (Select `build.gradle.kts` file when opening the project)
 
-## Setup the Project
+## Set up the Project
 
 You can set your project configurations in `config.yml`. Please make sure you DO NOT commit sensitive information in this file.
 You can pass those data via your CI/CD tools during the execution.
 
-## Continuous Integration/Continuous Deployment  with Jenkins
+## Continuous Integration/Continuous Deployment
 
-Here I have used Jenkins as my CI/CD tool. You can edit `Jenkinsfile` based on your requirement.
+For this example, I have used Jenkins and CircleCI as my CI/CD tools. 
+But you have to select only one tool in your project.
 
+You can edit `Jenkinsfile` based on your requirement.
 How to create [Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/).
+
+You can edit `./circleci/config.yml` for CircleCI configs.
 
 ## Running Tests
 
@@ -27,6 +31,11 @@ How to create [Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile
 - Developer PipeLine tests (excluding wip tests) - `./gradlew pipeLine1_Test`
 
 - All test cases - `./gradlew test`
+
+## Read log file
+
+- All the logs will be captured in - `./build/tmp/logFile.log`
+- you can change the log configurations in `/src/main/resources/logback.xml`
 
 ## Adding custom test tasks
 
