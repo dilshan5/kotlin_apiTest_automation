@@ -16,4 +16,8 @@ class CommonConstants {
         const val CONTENT_TYPE_HEADER = "Content-Type"
     }
 
+    object Logging {
+        const val EXTERNAL_FILE = "logFile"
+        const val STDOUT = "console"
+    }
 }

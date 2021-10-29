@@ -42,11 +42,7 @@ pipeline {
         failure {
             script {
                 if (env.BRANCH_NAME == 'master') {
-                    sh 'echo start - ZIP'
-                    zip zipFile: "${TEST_SUITE_COMMAND}.zip", archive: false, dir: "build/reports/tests/$TEST_SUITE_COMMAND/"
-                    sh 'echo end - ZIP'
                     emailext(
-                            attachmentsPattern: "${TEST_SUITE_COMMAND}.zip",
                             to: '$DEFAULT_RECIPIENTS',
                             subject: "Jenkins Build ${currentBuild.currentResult} on $TEST_SUITE_COMMAND - $PROFILE Environment",
                             body: "Build failed ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}.<br><br>" +
